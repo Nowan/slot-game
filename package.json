@@ -1,0 +1,27 @@
+{
+  "name": "slotmachine",
+  "version": "1.0.0",
+  "description": "Basic backend for Slot Machine game",
+  "engines": {
+    "node": "6.9.5"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnipromv/slot-game.git"
+  },
+  "keywords": [
+    "slot",
+    "casino",
+    "game"
+  ],
+  "author": "Mykyta Dniprovskyi",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/dnipromv/slot-game/wiki",
+  "dependencies": {
+    "express": "4.14.1"
+  }
+}
