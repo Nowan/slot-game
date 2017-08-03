@@ -1,17 +1,58 @@
-{
-  "background": "assets/textures/background.png",
-  "arrow_down": "assets/textures/arrow_down.png",
-  "arrow_up": "assets/textures/arrow_up.png",
-  "minus": "assets/textures/minus.png",
-  "plus": "assets/textures/plus.png",
-  "slot": "assets/textures/slot.png",
-  "spin": "assets/textures/spin.png",
-  "spin_inactive": "assets/textures/spin_inactive.png",
-  "sym_1": "assets/textures/SYM1.png",
-  "sym_2": "assets/textures/SYM2.png",
-  "sym_3": "assets/textures/SYM3.png",
-  "sym_4": "assets/textures/SYM4.png",
-  "sym_5": "assets/textures/SYM5.png",
-  "sym_6": "assets/textures/SYM6.png",
-  "sym_7": "assets/textures/SYM7.png"
-}
+[
+  {
+    "id": "background",
+    "path": "assets/textures/background.png"
+  },
+  {
+    "id": "arrow_down",
+    "path": "assets/textures/arrow_down.png"
+  },
+  {
+    "id": "arrow_up",
+    "path": "assets/textures/arrow_up.png"
+  },
+  {
+    "id": "minus",
+    "path": "assets/textures/minus.png"
+  },
+  {
+    "id": "plus",
+    "path": "assets/textures/plus.png"
+  },
+  {
+    "id": "slot",
+    "path": "assets/textures/slot.png"
+  },
+  {
+    "id": "spin",
+    "path": "assets/textures/spin.png"
+  },
+  {
+    "id": "spin_inactive",
+    "path": "assets/textures/spin_inactive.png"
+  },
+  {
+    "id": "sym_1",
+    "path": "assets/textures/SYM1.png"
+  },
+  {
+    "id": "sym_2",
+    "path": "assets/textures/SYM2.png"
+  },
+  {
+    "id": "sym_3",
+    "path": "assets/textures/SYM3.png"
+  },
+  {
+    "id": "sym_4",
+    "path": "assets/textures/SYM4.png"
+  },
+  {
+    "id": "sym_5",
+    "path": "assets/textures/SYM5.png"
+  },
+  {
+    "id": "sym_6",
+    "path": "assets/textures/SYM6.png"
+  }
+]

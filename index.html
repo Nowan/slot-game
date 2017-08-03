@@ -13,7 +13,9 @@
       var canvas = document.getElementById('canvas');
       
       var load_state = new LoadState();
-      load_state.startLoading(function(){console.log("load callback")});
+      load_state.loadImages().then((images) => {
+        console.log(images);
+      });
     }
     </script>
     
