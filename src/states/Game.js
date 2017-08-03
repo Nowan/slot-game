@@ -71,12 +71,14 @@ function GameState(){
     if(_is_spin_active) return;
     _selected_sym = _selected_sym + 1 <= 6 ? _selected_sym + 1 : 1;
     _sym_indicator.setImage(_res["sym_" + _selected_sym]);
+    _res.pluck_sound.cloneNode().play();
   }
   
   function _onSymDownPressed(){
     if(_is_spin_active) return;
     _selected_sym = _selected_sym - 1 >= 1 ? _selected_sym - 1 : 6;
     _sym_indicator.setImage(_res["sym_" + _selected_sym]);
+    _res.pluck_sound.cloneNode().play();
   }
   
   // public methods initialization

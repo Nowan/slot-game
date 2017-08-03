@@ -78,5 +78,10 @@
     "id": "main_song",
     "path": "assets/music/ondrosik-crazy.mp3",
     "type": "audio"
+  },
+  {
+    "id": "pluck_sound",
+    "path": "assets/sounds/pluck.wav",
+    "type": "audio"
   }
 ]
