@@ -6,10 +6,14 @@
     
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     
+    <script src="src/states/Load.js"></script>
+    
     <script type="application/javascript">
     function initGame() {
       var canvas = document.getElementById('canvas');
       
+      var load_state = new LoadState();
+      load_state.startLoading(function(){console.log("load callback")});
     }
     </script>
     
