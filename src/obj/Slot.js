@@ -19,10 +19,15 @@ function Slot(game, ctx2d, res, x, y){
       setTimeout(function(){
         _spinSym(current_time + next_spin_time, spinning_time, finishCallback);
       }, next_spin_time);
+      
+      var spin_sound = res.spin_sound.cloneNode();
+      spin_sound.mozPreservesPitch = false; // allow pitch regulation in firefox
+      spin_sound.playbackRate = 0.6 + 0.4 * (current_time / spinning_time);
+      spin_sound.volume = 0.6 + 0.4 * (current_time / spinning_time);
+      spin_sound.play();
     }
     else if(finishCallback) 
       finishCallback(_sym);
-    
   }
   
   // functions initialization

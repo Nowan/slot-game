@@ -88,5 +88,10 @@
     "id": "win_sound",
     "path": "assets/sounds/win.wav",
     "type": "audio"
+  },
+  {
+    "id": "spin_sound",
+    "path": "assets/sounds/spin.wav",
+    "type": "audio"
   }
 ]
