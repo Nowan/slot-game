@@ -1,4 +1,6 @@
 function CanvasText(game, ctx2d, text, x, y, font_size = 12, font_family = 'serif', color = '#FFFFFF'){
+  // public variables
+  this.type = "text";
   
   // public functions
   this.draw = function(){};
