@@ -4,6 +4,7 @@ function CanvasText(game, ctx2d, text, x, y, font_size = 12, font_family = 'seri
   
   // public functions
   this.draw = function(){};
+  this.setText = function(text){};
   this.setPosition = function(x, y){};
   this.setColor = function(color){};
   this.setAlignment = function(align){};
@@ -25,6 +26,11 @@ function CanvasText(game, ctx2d, text, x, y, font_size = 12, font_family = 'seri
     ctx2d.fillStyle = _color;
     ctx2d.fillText(_text, _x, _y);
     ctx2d.restore();
+  }
+  
+  this.setText = function(text){
+    _text = text;
+    game.redraw();
   }
   
   this.setPosition = function(x, y){

@@ -9,6 +9,8 @@ function GameState(){
   var _ctx = canvas.getContext('2d');
   var _res = {};
   var _objects = [];
+  var _balance = 100;
+  var _bet = 1;
   var _spin_btn, _balance_indicator, _bet_indicator, _sym_indicator;
   
   // private methods
@@ -22,6 +24,15 @@ function GameState(){
     _spin_btn.setImage(_res.spin_inactive);
   }
   
+  function _onBetIcrPressed(){
+    _bet = Math.min(_bet + 1, _balance);
+    _bet_indicator.setText(_bet + "$");
+  }
+  
+  function _onBetDcrPressed(){
+    _bet = Math.max(_bet - 1, 1);
+    _bet_indicator.setText(_bet + "$");
+  }
   
   // public methods initialization
   this.redraw = function(){
@@ -39,17 +50,17 @@ function GameState(){
     var balance_lbl = new CanvasText(this, _ctx, 'Your balance', 670, 135, 28, 'Lobster');
     balance_lbl.setAlignment('center');
     
-    _balance_indicator = new CanvasText(this, _ctx, '100$', 670, 185, 28, 'Lobster');
+    _balance_indicator = new CanvasText(this, _ctx, _balance + '$', 670, 185, 28, 'Lobster');
     _balance_indicator.setAlignment('center');
     
     var bet_lbl = new CanvasText(this, _ctx, 'Bet', 670, 285, 28, 'Lobster');
     bet_lbl.setAlignment('center');
     
-    _bet_indicator = new CanvasText(this, _ctx, '1$', 670, 335, 28, 'Lobster');
+    _bet_indicator = new CanvasText(this, _ctx, _bet + '$', 670, 335, 28, 'Lobster');
     _bet_indicator.setAlignment('center');
     
-    var bet_dcr_btn = new CanvasButton(this, _ctx, _res.minus, 580, 320);
-    var bet_icr_btn = new CanvasButton(this, _ctx, _res.plus, 722, 306);
+    var bet_dcr_btn = new CanvasButton(this, _ctx, _res.minus, 580, 306, _onBetDcrPressed);
+    var bet_icr_btn = new CanvasButton(this, _ctx, _res.plus, 722, 306, _onBetIcrPressed);
     
     _sym_indicator = new CanvasImage(this, _ctx, _res.sym_1, 
                                      429 - _res.sym_1.width * 0.5, 

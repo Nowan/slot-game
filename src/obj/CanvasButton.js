@@ -11,7 +11,7 @@ function CanvasButton(game, ctx2d, image, x, y, actionCallback){
   this.handleEvent = function(event){
     if(!_actionCallback) return;
     
-    if(event.clientX > this.x && event.clientY < this.x + this.width &&
+    if(event.clientX > this.x && event.clientX < this.x + this.width &&
        event.clientY > this.y && event.clientY < this.y + this.height )
       _actionCallback();
   }
