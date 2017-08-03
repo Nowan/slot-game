@@ -90,6 +90,11 @@
     "type": "audio"
   },
   {
+    "id": "lose_sound",
+    "path": "assets/sounds/lose.wav",
+    "type": "audio"
+  },
+  {
     "id": "spin_sound",
     "path": "assets/sounds/spin.wav",
     "type": "audio"

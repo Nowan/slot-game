@@ -34,6 +34,11 @@ function GameState(){
       // lose: decrease balance, play losing sound
       _balance = Math.max(_balance - _bet, 0);
       _balance_indicator.setColor("#d8472f");
+      
+      var lose_sound = _res.lose_sound;
+      lose_sound.mozPreservesPitch = false; // allow pitch regulation in firefox
+      lose_sound.playbackRate = 0.95 + Math.floor(Math.random() * 20) / 20;
+      lose_sound.play();
     }
     
     _bet = Math.min(_bet, _balance);
