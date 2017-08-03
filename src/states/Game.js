@@ -23,7 +23,7 @@ function GameState(){
     
     var background = new CanvasImage(this, _ctx, _res.background, 0, 0);
     var button = new CanvasButton(this, _ctx, _res.spin, 824, 218);
-    var balance_lbl = new CanvasText(this, _ctx, "Your balance", 670, 135, 12, "Arial")
+    var balance_lbl = new CanvasText(this, _ctx, "Your balance", 670, 135, 12, "Lobster")
     balance_lbl.setAlignment('center');
     
     _objects.push(background);

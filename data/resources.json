@@ -1,5 +1,10 @@
 [
   {
+    "id": "regular_font",
+    "family": "Lobster",
+    "type": "font"
+  },
+  {
     "id": "background",
     "path": "assets/textures/background.png",
     "type": "image"

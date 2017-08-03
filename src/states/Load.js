@@ -20,6 +20,16 @@ function LoadState(){
     });
   }
   
+  function _loadFont(resource){
+    return new Promise((resolve, reject) => {
+      WebFont.load({
+        google: { families: [resource.family] },
+        active: resolve,
+        inactive: reject
+      });
+    });
+  }
+  
   this.loadResources = function(){
     return new Promise((resolve, reject) => {
       _fetchResources().then((resources) => {
@@ -31,6 +41,12 @@ function LoadState(){
           if(loaded_resources.length >= resources.length)
             resolve(loaded_resources);
         }
+        
+        function onFontLoad(){
+          loaded_resources.length++;
+          if(loaded_resources.length >= resources.length)
+            resolve(loaded_resources);
+        }
       
         for( var i = 0; i < resources.length; i++ ){
           var resource = resources[i];
@@ -38,6 +54,9 @@ function LoadState(){
           switch(resource.type){
             case "image":
               _loadImage(resource).then(onImageLoad);
+              break;
+            case "font":
+              _loadFont(resource).then(onFontLoad);
               break;
           }
         }
