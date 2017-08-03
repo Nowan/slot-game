@@ -43,4 +43,9 @@ function CanvasText(game, ctx2d, text, x, y, font_size = 12, font_family = 'seri
     _align = align;
     game.redraw();
   };
+  
+  this.setColor = function(color){
+    _color = color;
+    game.redraw();
+  }
 }

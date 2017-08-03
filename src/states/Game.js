@@ -14,6 +14,7 @@ function GameState(){
   var _balance = 100;
   var _bet = 1;
   var _selected_sym = 1;
+  var _is_spin_active = false;
   
   // private methods
   function _dispatchEvents(event){
@@ -22,26 +23,58 @@ function GameState(){
         _objects[i].handleEvent(event);
   }
   
+  function _onSpinningFinished(sym_index){
+    if(_selected_sym == sym_index){
+      _balance += sym_index == 1 ? _bet * 7 : _bet * 3;
+      _balance_indicator.setColor("#2fd83b");
+    }
+    else{
+      _balance = Math.max(_balance - _bet, 0);
+      _balance_indicator.setColor("#d8472f");
+    }
+    
+    _bet = Math.min(_bet, _balance);
+    _bet_indicator.setText(_bet + "$");
+    
+    _balance_indicator.setText(_balance + "$");
+    setTimeout(function(){ _balance_indicator.setColor("#ffffff") }, 500);
+    
+    if(_balance > 0){
+      
+      _spin_btn.setImage(_res.spin);
+      _is_spin_active = false;
+    }
+  }
+  
   function _onSpinPressed(){
+    if(_is_spin_active) return;
+    
     _spin_btn.setImage(_res.spin_inactive);
+    _slot.spin(_onSpinningFinished);
+    
+    _is_spin_active = true;
   }
   
   function _onBetIcrPressed(){
+    if(_is_spin_active) return;
     _bet = Math.min(_bet + 1, _balance);
     _bet_indicator.setText(_bet + "$");
   }
   
   function _onBetDcrPressed(){
+    if(_is_spin_active) return;
     _bet = Math.max(_bet - 1, 1);
     _bet_indicator.setText(_bet + "$");
   }
   
   function _onSymUpPressed(){
+    if(_is_spin_active) return;
     _selected_sym = _selected_sym + 1 <= 6 ? _selected_sym + 1 : 1;
     _sym_indicator.setImage(_res["sym_" + _selected_sym]);
   }
   
   function _onSymDownPressed(){
+    if(_is_spin_active) return;
     _selected_sym = _selected_sym - 1 >= 1 ? _selected_sym - 1 : 6;
     _sym_indicator.setImage(_res["sym_" + _selected_sym]);
   }
