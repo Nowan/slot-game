@@ -25,10 +25,13 @@ function GameState(){
   
   function _onSpinningFinished(sym_index){
     if(_selected_sym == sym_index){
+      // win: increase balance, play winning sound
       _balance += sym_index == 1 ? _bet * 7 : _bet * 3;
       _balance_indicator.setColor("#2fd83b");
+      _res.win_sound.play();
     }
     else{
+      // lose: decrease balance, play losing sound
       _balance = Math.max(_balance - _bet, 0);
       _balance_indicator.setColor("#d8472f");
     }

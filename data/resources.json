@@ -83,5 +83,10 @@
     "id": "pluck_sound",
     "path": "assets/sounds/pluck.wav",
     "type": "audio"
+  },
+  {
+    "id": "win_sound",
+    "path": "assets/sounds/win.wav",
+    "type": "audio"
   }
 ]
