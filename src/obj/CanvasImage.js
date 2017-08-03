@@ -25,6 +25,4 @@ function CanvasImage(game, ctx2d, image, x, y){
     _image = image;
     game.redraw();
   }
-  
-  this.draw();
 }
