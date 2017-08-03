@@ -93,5 +93,15 @@
     "id": "spin_sound",
     "path": "assets/sounds/spin.wav",
     "type": "audio"
+  },
+  {
+    "id": "dcr_sound",
+    "path": "assets/sounds/bet_decrease.wav",
+    "type": "audio"
+  },
+  {
+    "id": "icr_sound",
+    "path": "assets/sounds/bet_increase.wav",
+    "type": "audio"
   }
 ]

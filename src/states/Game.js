@@ -62,12 +62,20 @@ function GameState(){
     if(_is_spin_active) return;
     _bet = Math.min(_bet + 1, _balance);
     _bet_indicator.setText(_bet + "$");
+    
+    var icr_sound = _res.icr_sound.cloneNode();
+    icr_sound.volume = 0.6;
+    icr_sound.play();
   }
   
   function _onBetDcrPressed(){
     if(_is_spin_active) return;
     _bet = Math.max(_bet - 1, 1);
     _bet_indicator.setText(_bet + "$");
+    
+    var dcr_sound = _res.dcr_sound.cloneNode();
+    dcr_sound.volume = 0.6;
+    dcr_sound.play();
   }
   
   function _onSymUpPressed(){
