@@ -89,6 +89,7 @@ function GameState(){
   this.init = function(resources){
     _res = resources;
     
+    // create display objects
     var background = new CanvasImage(this, _ctx, _res.background, 0, 0);
     _spin_btn = new CanvasButton(this, _ctx, _res.spin, 824, 218, _onSpinPressed);
     
@@ -118,6 +119,7 @@ function GameState(){
     
     _slot = new Slot(this, _ctx, _res, 83, 140);
     
+    // add objects to drawing queue
     _objects.push(background);
     _objects.push(_spin_btn);
     _objects.push(balance_lbl);
@@ -131,8 +133,12 @@ function GameState(){
     _objects.push(sym_down);
     _objects.push(_slot);
     
-    // 
+    // dispatch click event to display objects
     _canvas.addEventListener('click', _dispatchEvents, false);
+    
+    // start playing audio
+    _res.main_song.loop = true;
+    _res.main_song.play();
     
     this.redraw();
   }

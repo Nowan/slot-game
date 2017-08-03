@@ -30,22 +30,41 @@ function LoadState(){
     });
   }
   
+  function _loadAudio(resource){
+    return new Promise((resolve, reject) => {
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", resource.path);
+      xhttp.responseType = "blob";    
+      xhttp.onload = function(){
+        var audio = new Audio(URL.createObjectURL(this.response));
+        audio.load();
+        resolve({ resource: resource, audio: audio });
+      }
+      xhttp.onerror = () => reject(xhttp.statusText);
+      xhttp.send();
+    });
+  }
+  
   this.loadResources = function(){
     return new Promise((resolve, reject) => {
       _fetchResources().then((resources) => {
         var loaded_resources = { length: 0 };
         
         function onImageLoad(data){
-          loaded_resources.length++;
           loaded_resources[data.resource.id] = data.image;
-          if(loaded_resources.length >= resources.length)
-            resolve(loaded_resources);
+          loaded_resources.length++;
+          if(loaded_resources.length >= resources.length) resolve(loaded_resources);
         }
         
         function onFontLoad(){
           loaded_resources.length++;
-          if(loaded_resources.length >= resources.length)
-            resolve(loaded_resources);
+          if(loaded_resources.length >= resources.length) resolve(loaded_resources);
+        }
+        
+        function onAudioLoad(data){
+          loaded_resources[data.resource.id] = data.audio;
+          loaded_resources.length++;
+          if(loaded_resources.length >= resources.length) resolve(loaded_resources);
         }
       
         for( var i = 0; i < resources.length; i++ ){
@@ -57,6 +76,9 @@ function LoadState(){
               break;
             case "font":
               _loadFont(resource).then(onFontLoad);
+              break;
+            case "audio":
+              _loadAudio(resource).then(onAudioLoad);
               break;
           }
         }

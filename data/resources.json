@@ -73,5 +73,10 @@
     "id": "sym_6",
     "path": "assets/textures/SYM6.png",
     "type": "image"
+  },
+  {
+    "id": "main_song",
+    "path": "assets/music/ondrosik-crazy.mp3",
+    "type": "audio"
   }
 ]
