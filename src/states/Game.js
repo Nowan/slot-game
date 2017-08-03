@@ -11,7 +11,7 @@ function GameState(){
   var _objects = [];
   var _balance = 100;
   var _bet = 1;
-  var _spin_btn, _balance_indicator, _bet_indicator, _sym_indicator;
+  var _slot, _spin_btn, _balance_indicator, _bet_indicator, _sym_indicator;
   
   // private methods
   function _dispatchEvents(event){
@@ -69,6 +69,8 @@ function GameState(){
     var sym_up = new CanvasButton(this, _ctx, _res.arrow_up, 429 - _res.arrow_up.width * 0.5, 90);
     var sym_down = new CanvasButton(this, _ctx, _res.arrow_down, 429 - _res.arrow_down.width * 0.5, 370);
     
+    _slot = new Slot(this, _ctx, _res, 83, 140);
+    
     _objects.push(background);
     _objects.push(_spin_btn);
     _objects.push(balance_lbl);
@@ -80,6 +82,7 @@ function GameState(){
     _objects.push(_sym_indicator);
     _objects.push(sym_up);
     _objects.push(sym_down);
+    _objects.push(_slot);
     
     // 
     _canvas.addEventListener('click', _dispatchEvents, false);
