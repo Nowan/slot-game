@@ -9,9 +9,11 @@ function GameState(){
   var _ctx = canvas.getContext('2d');
   var _res = {};
   var _objects = [];
+  var _slot, _spin_btn, _balance_indicator, _bet_indicator, _sym_indicator;
+  
   var _balance = 100;
   var _bet = 1;
-  var _slot, _spin_btn, _balance_indicator, _bet_indicator, _sym_indicator;
+  var _selected_sym = 1;
   
   // private methods
   function _dispatchEvents(event){
@@ -32,6 +34,16 @@ function GameState(){
   function _onBetDcrPressed(){
     _bet = Math.max(_bet - 1, 1);
     _bet_indicator.setText(_bet + "$");
+  }
+  
+  function _onSymUpPressed(){
+    _selected_sym = _selected_sym + 1 <= 6 ? _selected_sym + 1 : 1;
+    _sym_indicator.setImage(_res["sym_" + _selected_sym]);
+  }
+  
+  function _onSymDownPressed(){
+    _selected_sym = _selected_sym - 1 >= 1 ? _selected_sym - 1 : 6;
+    _sym_indicator.setImage(_res["sym_" + _selected_sym]);
   }
   
   // public methods initialization
@@ -66,8 +78,10 @@ function GameState(){
                                      429 - _res.sym_1.width * 0.5, 
                                      (canvas.height - _res.sym_1.height) * 0.5);
     
-    var sym_up = new CanvasButton(this, _ctx, _res.arrow_up, 429 - _res.arrow_up.width * 0.5, 90);
-    var sym_down = new CanvasButton(this, _ctx, _res.arrow_down, 429 - _res.arrow_down.width * 0.5, 370);
+    var sym_up = new CanvasButton(this, _ctx, _res.arrow_up, 
+                                  429 - _res.arrow_up.width * 0.5, 90, _onSymUpPressed);
+    var sym_down = new CanvasButton(this, _ctx, _res.arrow_down, 
+                                    429 - _res.arrow_down.width * 0.5, 370, _onSymDownPressed);
     
     _slot = new Slot(this, _ctx, _res, 83, 140);
     
