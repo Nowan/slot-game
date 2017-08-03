@@ -1,58 +1,72 @@
 [
   {
     "id": "background",
-    "path": "assets/textures/background.png"
+    "path": "assets/textures/background.png",
+    "type": "image"
   },
   {
     "id": "arrow_down",
-    "path": "assets/textures/arrow_down.png"
+    "path": "assets/textures/arrow_down.png",
+    "type": "image"
   },
   {
     "id": "arrow_up",
-    "path": "assets/textures/arrow_up.png"
+    "path": "assets/textures/arrow_up.png",
+    "type": "image"
   },
   {
     "id": "minus",
-    "path": "assets/textures/minus.png"
+    "path": "assets/textures/minus.png",
+    "type": "image"
   },
   {
     "id": "plus",
-    "path": "assets/textures/plus.png"
+    "path": "assets/textures/plus.png",
+    "type": "image"
   },
   {
     "id": "slot",
-    "path": "assets/textures/slot.png"
+    "path": "assets/textures/slot.png",
+    "type": "image"
   },
   {
     "id": "spin",
-    "path": "assets/textures/spin.png"
+    "path": "assets/textures/spin.png",
+    "type": "image"
   },
   {
     "id": "spin_inactive",
-    "path": "assets/textures/spin_inactive.png"
+    "path": "assets/textures/spin_inactive.png",
+    "type": "image"
   },
   {
     "id": "sym_1",
-    "path": "assets/textures/SYM1.png"
+    "path": "assets/textures/SYM1.png",
+    "type": "image"
   },
   {
     "id": "sym_2",
-    "path": "assets/textures/SYM2.png"
+    "path": "assets/textures/SYM2.png",
+    "type": "image"
   },
   {
     "id": "sym_3",
-    "path": "assets/textures/SYM3.png"
+    "path": "assets/textures/SYM3.png",
+    "type": "image"
   },
   {
     "id": "sym_4",
-    "path": "assets/textures/SYM4.png"
+    "path": "assets/textures/SYM4.png",
+    "type": "image"
   },
   {
     "id": "sym_5",
-    "path": "assets/textures/SYM5.png"
+    "path": "assets/textures/SYM5.png",
+    "type": "image"
   },
   {
     "id": "sym_6",
-    "path": "assets/textures/SYM6.png"
+    "path": "assets/textures/SYM6.png",
+    "type": "image"
   }
 ]

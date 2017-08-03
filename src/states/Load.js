@@ -20,21 +20,26 @@ function LoadState(){
     });
   }
   
-  this.loadImages = function(){
+  this.loadResources = function(){
     return new Promise((resolve, reject) => {
       _fetchResources().then((resources) => {
-        var loaded_images = { length: 0 };
+        var loaded_resources = { length: 0 };
         
         function onImageLoad(data){
-          loaded_images.length++;
-          loaded_images[data.resource.id] = data.image;
-          if(loaded_images.length >= resources.length)
-            resolve(loaded_images);
+          loaded_resources.length++;
+          loaded_resources[data.resource.id] = data.image;
+          if(loaded_resources.length >= resources.length)
+            resolve(loaded_resources);
         }
       
         for( var i = 0; i < resources.length; i++ ){
           var resource = resources[i];
-          _loadImage(resource).then(onImageLoad);
+          
+          switch(resource.type){
+            case "image":
+              _loadImage(resource).then(onImageLoad);
+              break;
+          }
         }
       });
     });
